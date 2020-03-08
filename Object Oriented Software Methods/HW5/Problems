@@ -1,0 +1,19 @@
+Exercise 6.2. Form subclasses HourlyEmployee and SalariedEmployee of the Employee
+class. Provide constructors
+HourlyEmployee(String aName, double anHourlySalary)
+SalariedEmployee(String aName, double anAnnualSalary)
+Add a method getWeeklySalary. Assume that hourly employees work 40 hours per
+week, and that salaried employees are paid of their annual salary every week.
+
+Exercise 6.3. Explain the two different uses of the super keyword. How can you tell
+when super is used to invoke a constructor?
+the twp different uses of the super keyword is to invoke a contructor and to access a method
+in the superclass. For the constructor you have something like super(name,...); and for calling a method
+you have something like super.getSalary();
+
+Exercise 6.17. Most drawing programs indicate selected items by placing “grabbers”
+around the corners. Implement this feature in the scene editor by adding a method
+Rectangle getBounds() to the SceneShape interface type. In the drawSelection method of the SelectableShape
+class, call getBounds to determine the grabber locations. Is this an example of the TEMPLATE
+METHOD pattern?
+This is an example of the TEMPLATE METHOD.

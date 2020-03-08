@@ -1,0 +1,35 @@
+Exercise 7.19. Consider the following approach to cloning. Using serialization, save an
+object to a stream and read it back. You get a new object that appears to be a clone of the
+original, because all of its instance fields are distinct. Implement this approach to clone
+employees with a buddy field. Verify that the result is a proper clone.
+
+*Exercise 7.20. Give two limitations of the approach used in Exercise 7.19.
+It is not good for objects that hold a lot of memory and if the class changes it will make the data unreadable.
+
+*Exercise 7.31. What are all Java bean properties of the JSlider class?
+Extent
+Font
+Inverted
+LabelTable
+MajorTickSpacing
+Maximum
+Minimum
+MinorTickSpacing
+Model
+Orientation
+PaintLabels
+PaintTicks
+PaintTrack
+SnapToTicks
+UI
+Value
+ValueIsAdjusting
+
+*Exercise 7.33. Modify the CarBean to have separate width and height properties.
+
+*Exercise 7.34. Modify the CarBean to have separate color properties for the base and the
+tires.
+
+*Exercise 7.37. Modify the application that was composed from the CarBean by adding
+two sliders: one to adjust the x property and another to adjust the y property. List the
+steps you carried out in the builder tool.

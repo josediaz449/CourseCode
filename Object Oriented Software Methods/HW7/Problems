@@ -1,0 +1,9 @@
+Using them please come up with a
+description
+and example
+for the Bridge pattern.
+
+The Bridge pattern is a structural design pattern. It is intended to decouple an abstraction from its implementation
+so that the two can vary independently. For example you can have a stove and the stove controls but by decouling the
+abstraction from the implementation we can make changes to the implementation of the controls without making changes to
+the actual stove or stove controls.

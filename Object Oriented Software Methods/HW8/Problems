@@ -1,0 +1,28 @@
+Exercise 10.1. Consider the enumeration and list methods of the Collections class. To
+what extent do they follow the ADAPTER pattern?
+
+The enumeration method was made to do something similar to adaptors.
+It makes it possible to use a Collection where an Enumeration is required.
+The List method makes it possible to use an Enumeration where a Collection is required.
+But, this does not follow the Adaptor pattern since it uses methods
+instead of Adaptor classes that map the methods of one
+class into those of another.
+
+Exercise 10.2. Explain why MouseAdapter and WindowAdapter are not adapters in the
+sense of the ADAPTER pattern.
+
+Mouse Adapter and Window Adaptor are not adaptors in the sense of the Adapter pattern because they are not
+making it possible to use a class where another is required by bridging similar methods. These adaptors instead add
+functionality to the classes that are implementing them.
+
+Exercise 10.3. The Iterable interface type is attractive because it allows objects to be
+used in a “for each” loop. Design an adapter that adapts InputStream to the
+Iterable<Integer> interface type.
+
+Exercise 10.6. The STRATEGY and COMMAND patterns both suggest using objects in
+place of methods. What is the difference in intent between these two patterns?
+
+The strategy patterns intent is to be able to implement your own algorithm as an object
+for a specific context. In contrast the intent of the Command pattern is to implement commands
+that behave like objects, either because you need to store additional information with commands, or because
+you want to collect commands.
