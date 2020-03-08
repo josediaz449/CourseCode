@@ -1,0 +1,14 @@
+ static int[] matchingStrings(String[] strings, String[] queries) {
+            int[] results = new int[queries.length];
+            for(int i = 0; i<queries.length;i++){
+                int num = 0;
+                for(int j = 0; j<strings.length;j++){
+                    if(queries[i].equals(strings[j])){
+                        num+=1;
+                    }
+                }
+                results[i]= num;
+            }
+            return results;
+
+    }
