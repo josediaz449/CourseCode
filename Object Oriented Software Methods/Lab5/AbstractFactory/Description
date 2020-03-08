@@ -1,0 +1,6 @@
+Type: Creational
+Purpose: Provide an interface for creating families of related or dependent
+objects without specifying their concrete classes. An abstract class defines methods that
+construct related products. Concrete factories create these product sets.
+Factory of factories.
+

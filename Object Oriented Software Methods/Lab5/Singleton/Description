@@ -1,0 +1,4 @@
+Type: Creational
+Purpose: Ensure a class allows only one object to be created, providing
+a single point of access to it.
+It is named after the singleton set, which is defined to be a set containing one element

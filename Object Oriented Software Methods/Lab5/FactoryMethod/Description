@@ -1,0 +1,4 @@
+Type: Creational
+Purpose: Define an interface for creating an object, but let subclasses
+decide which class to instantiate.
+Teaches how to supply a method that can be overridden to create objects of varying types.

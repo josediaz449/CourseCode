@@ -1,0 +1,9 @@
+package Lab5.Flyweight;
+
+public class StandardEngine extends AbstractEngine {
+    
+    public StandardEngine(int size) {
+        super(size, false); // not turbocharges
+    }
+    
+}

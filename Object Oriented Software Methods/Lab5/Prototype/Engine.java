@@ -1,0 +1,8 @@
+package Lab5.Prototype;
+
+public interface Engine {
+    
+    public int getSize();
+    public boolean isTurbo();
+    
+}

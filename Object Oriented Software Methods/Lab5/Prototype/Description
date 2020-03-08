@@ -1,0 +1,5 @@
+Type: Creational
+Purpose: Specify the kinds of objects to create using a prototypical
+instance, and create new objects by copying the prototype.
+Object creation requires processing time, and reducing the time it takes to create objects is a
+goal of the prototype design pattern.

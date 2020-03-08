@@ -1,0 +1,7 @@
+Type: Structural
+Purpose: Use sharing to support large numbers of fine-grained objects
+efficiently.
+Allows you to reference a multitude of objects of the same type and having the same state, but only by
+instantiating the minimum number of actual objects needed.
+The flyweight design patterns offer great efficiency and improved processing when dealing with a large
+number of similar objects.

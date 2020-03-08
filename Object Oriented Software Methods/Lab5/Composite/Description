@@ -1,0 +1,6 @@
+Type: Structural
+Purpose: Compose objects into tree structures to represent part-whole hierarchies.
+Composite lets clients treat individuals objects and compositions of objects uniformly.
+The whole point of the Composite pattern is that the Composite can be treated atomically, just like a leaf.
+In order to implement the composite design pattern, we first create an abstract class to represent the
+primitive and tree structures

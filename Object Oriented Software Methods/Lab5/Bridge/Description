@@ -1,0 +1,4 @@
+Type: Structural
+Purpose: Decouple an abstraction from its implementation so that each
+may vary independently.
+This design pattern involves creating a bridge between abstraction and implementation.
