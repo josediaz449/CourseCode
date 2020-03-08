@@ -1,0 +1,14 @@
+Exercise 10.7. Is an ActionListener a command object in the sense of the COMMAND
+pattern?
+An ActionListener is not a command object like in the Command pattern. You cannot change the state of a
+concrete ActionListener and it might not have a state. The ActionListener is also not made for creating
+collections of commands.
+
+Exercise 10.9. Is the BorderFactory class of the Java library an example of the FACTORY
+METHOD pattern?
+The BorderFactory class is not an example of the Factory Method pattern. It does not have creator subclasses
+that provide different versions of the factory method.
+
+Exercise 9.19. Modify the algorithm animation program so that it becomes a framework
+for animating different sorting algorithms. Demonstrate the framework by animating
+the selection sort algorithm.

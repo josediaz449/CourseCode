@@ -1,0 +1,32 @@
+Exercise 3.1. Find two total orderings for String objects. Find a partial ordering that is
+not a total ordering
+ANSWER:
+total orderings = equals(String anotherString) || compareTo(String anotherString)
+partial ordering = compareToIgnoreCase(String str)
+
+Exercise 3.12. Implement a class Matrix that represents a matrix of the form
+Here r and c are the number of rows and columns of the matrix. Your class should support
+the following operations:
+ Constructs a matrix with a given number of rows and columns.
+ Gets and sets the element at a particular row and column position.
+ Adds and multiplies two compatible matrices. (You may need to look up the definition
+for matrix addition and multiplication in a linear algebra book or on the
+Web.)
+As the internal representation, store the elements in a two-dimensional array
+private double[][] elements;
+In the constructor, initialize the array as
+elements = new double[r][c];
+Then you can access the element at row i and column j as elements[i][j].
+
+Exercise 3.13. In many applications, matrices are sparse. They have mostly values of zero
+off the diagonal, values of one on the diagonal, and a few other values:
+|1 0 a 0|
+|0 1 0 0|
+|0 0 b 1|
+|c 0 0 1|
+Such a matrix can be stored more efficiently by simply keeping track of the special values
+and their row and column positions. Reimplement the Matrix class of Exercise 3.12
+using a representation that is optimized for sparse matrices.
+
+Exercise 3.27. Show that (tail - head - count) % elements.length == 0 is an invariant
+of the bounded queue implementation.

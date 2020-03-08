@@ -1,0 +1,17 @@
+*Exercise 8.5. Explain the phenomenon of “inversion of control”, using the graph editor
+framework as an example.
+Inversion of control in a framework signifies that the framework classes, and not the application classes, are
+responsible for the control flow in the application.
+When you click on the toolbar, it calls the method contains to determine which icon was selected and then calls
+clone. The methods contains and clone were written by the applications programmer;
+the rest ot the methods are part of the framework. The applications programmer's methods are called by the
+framework, not by code produced by the applications programmer. Control is not in the application
+programmer's code which is an inversion of control.
+
+*Exercise 8.13. Enhance the SimpleGraphEditor to support both circular and rectangular
+nodes.
+
+Exercise 8.14. Enhance the SimpleGraphEditor to support lines with arrow tips.
+
+Exercise 8.15. Enhance the SimpleGraphEditor to support text annotations of lines.
+Hint: Make a label property.

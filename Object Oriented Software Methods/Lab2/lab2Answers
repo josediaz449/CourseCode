@@ -1,0 +1,6 @@
+Exercise 5.11. A Scanner can be used to read numbers and lines from a Reader. Is this an
+example of the DECORATOR pattern?
+No it is not. Scanner is not a subclass of Reader.
+
+Exercise 5.13. Use Strategy Pattern to make it possible to make multiple different ciphers
+
