@@ -1,2 +1,2 @@
 # CourseCode
-Code done for course throughout college career
+Code done for courses throughout college career
