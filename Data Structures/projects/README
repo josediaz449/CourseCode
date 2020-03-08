@@ -1,0 +1,17 @@
+Problem and execution:
+I decided to do the DNA sequence problem. The DNA class creates a DNA object that has the name and the sequence of the DNA. 
+DNAMain.java has the algorithms for the longest common subsequence and the edit distance. I used the two data files that were provided
+to test my program. My program scans in the files. To test the program, you will need to enter the location of the file where I have created
+the file object. The scanner then gets the name of the DNA and the sequence and creates a  DNA object. It adds all of them to an ArrayList.
+It then iterates through the ArrayLists and computes both the longest common subsequence and the edit distance. The program then creates a
+file with the numbers separated by commas. I then used this file and created an excel sheet to find the correlations. I have these excel
+files in this folder as well. 
+
+Results:
+With the small data file I found that there was a correlation of -0.858 which means there was a strong inverse correlation. This means that 
+as the longest common subsequence increased, the edit distance decreased. 
+For the median data file I found that there was a correlation of 0.98 which is a really strong positive correlation. This contradicted what 
+the other data had shown. I figured out that the lengths of the strings in the median data file vary a lot more which is definitely affecting 
+the results of the correlation because the bigger the difference between DNA sizes the bigger the Edit Distance. So in conclusion as the 
+longest common subsequence increases, the edit distance decreases.
+
