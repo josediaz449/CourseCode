@@ -1,0 +1,6 @@
+Type: Behavioral
+Purpose: Represent a method to be performed on the elements of an object structure. Visitor lets you define a new
+method w/o changing the classes of the elements on which it operates.
+Visitor's primary purpose is to abstract functionality that can be applied to an aggregate hierarchy of
+"element" objects.
+New functionality can easily be added to the original inheritance hierarchy by creating a new Visitor subclass.

@@ -1,0 +1,7 @@
+Object pooling can offer a significant performance boost; it is most
+effective in situations where the cost of initializing a class instance is
+high, the rate of instantiation of a class is high, and the number of
+instantiations in use at any one time is low.
+The Object Pool lets others "check out" objects from its pool, when
+those objects are no longer needed by their processes, they are returned
+to the pool in order to be reused.
