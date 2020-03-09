@@ -1,0 +1,117 @@
+#lang racket
+ (require "mk.rkt")
+(require "numbers.rkt")
+
+
+;; Part I Write the answers to the following problems using your
+;; knowledge of miniKanren.  For each problem, explain how miniKanren
+;; arrived at the answer.  You will be graded on the quality of your
+;; explanation; a full explanation will require several sentences.
+
+;; 1 What is the value of 
+#;
+(run 2 (q)
+  (== 5 q)
+  (conde
+   [(conde 
+     [(== 5 q)
+      (== 6 q)])
+    (== 5 q)]
+   [(== q 5)]))
+
+;;The value of it is: '((5)). The run 2 means that there can be up to 2 answers and in this example there is only one.
+;;In the beginning q is unified to 5, then the program goes through the conde statements where for the first one it is saying q
+;;unified to 5 and also 6 so it is false. It then moves to the second conde which unifies q to 5 and then it returns q which is 5. 
+
+;; 2 What is the value of
+#;
+(run 1 (q) 
+  (fresh (a b) 
+    (== `(,a ,b) q)
+    (absento 'tag q)
+    (symbolo a)))
+
+;;The value of it is: '(((_0 _1))). The program introduces two variables a and b with fresh and then unifies q with the list of a and b. It comstraints
+;;that 'tag is not in q and lastly contraints a to be a symbol. It returns '(((_0 _1))) to show that a and b are fresh and have not been unified, so
+;;they could be anything but with the constaints that were given.
+
+;; 3 What do the following miniKanren constraints mean?
+;; a == : unifies two terms
+;; b =/= : disequality constraint 
+;; c absento : ensures a symbol tag does not occur in a term t
+;; d numbero : it is a type constraint that is the equivalent to number?
+;; e symbolo : it is a type constraint that is the equivalent to symbol?
+
+;; Part II goes here.
+
+(define assoc
+  (lambda (x ls)
+    (match-let* ((`(,a . ,d) ls)
+                 (`(,aa . ,da) a))
+      (cond
+        ((equal? aa x) a)
+        ((not (equal? aa x)) (assoc x d))))))
+
+(defrel (assoco x ls out)
+      (conde
+       [(fresh (a d aa da)
+               (== ls `(,a . ,d))
+               (== a `(,aa . ,da))
+               (== x aa)
+     (== a out))]
+       [(fresh (a d aa da)
+               (== ls `(,a . ,d))
+               (== a `(,aa . ,da))
+               (=/= x aa)
+               (assoco x d out))]))
+
+(define reverse
+  (lambda (ls)
+    (cond
+      ((equal? '() ls) '())
+      (else
+       (match-let* ((`(,a . ,d) ls)
+                    (res (reverse d)))
+         (append res `(,a)))))))
+
+(defrel (reverseo ls out)
+    (conde
+      [(== ls '())
+       (== '() out)]
+       [(=/= ls '())
+        (fresh (a d res)
+               (== ls `(,a . ,d))
+               (reverseo d res)
+               (appendo res `(,a) out))]))
+
+(define stutter
+  (lambda (ls)
+    (cond
+      ((equal? '() ls) '())
+      (else 
+        (match-let* ((`(,a . ,d) ls)
+		     (res (stutter d)))
+          `(,a ,a . ,res))))))
+
+(defrel (stuttero ls out)
+    (conde
+      [(== ls '())
+       (== '() out)]
+      [(fresh (a d res)
+               (== ls `(,a . ,d))
+               (== `(,a ,a . ,res) out)
+              (stuttero d res))]))
+
+(run* (q)
+      (fresh (b c a)
+             (== `(,a ,q ,c) `(,b ,a . ,a))))
+
+(run* (q)
+      (fresh (a b c)
+             (== q `(,b))
+             (== b `(,a ,q))))
+
+(run* (q)
+      (fresh (a b c)
+             (== `(,q . ,b) `(,c ,c))
+             (== `(,b ,c) `(,a . ,a))))

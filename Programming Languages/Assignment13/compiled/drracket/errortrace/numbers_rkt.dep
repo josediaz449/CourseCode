@@ -1,0 +1,1 @@
+("7.4" racket ("d31aa113414114814770cff655bae8cbfa2cdef4" . "c89ec09da521cc1369442c43b9edbb455fea3036") #"C:\\Users\\josed\\OneDrive\\Documents\\C311 Programming Languages\\Assignment13\\mk.rkt" (collects #"errortrace" #"errortrace-key.rkt") (collects #"racket" #"main.rkt") (collects #"racket" #"runtime-config.rkt") (collects #"wxme" #"read.rkt"))
