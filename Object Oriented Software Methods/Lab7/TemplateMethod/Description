@@ -1,0 +1,7 @@
+Type: Behavioral
+Purpose: Define the skeleton of an algorithm in a method, deferring some steps to subclasses.
+Template Method lets subclasses redefine certain steps of an algorithm w/o changing the algs structure.
+Base class declares algorithm 'placeholders', and derived classes implement the placeholders.
+The template method design pattern involves creating an algorithm template with
+processing steps relegated to child classes. The purpose is to give the child classes the
+ability to specify their own steps while still remaining true to the algorithm structure.

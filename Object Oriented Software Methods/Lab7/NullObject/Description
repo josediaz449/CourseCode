@@ -1,0 +1,9 @@
+Type: Behavioral
+Purpose: The intent of a Null Object is to encapsulate the absence of an object by providing a
+substitutable alternative that offers suitable default do nothing behavior. In short, a design
+where "nothing will come of nothing".
+Create null object class to avoid NullPointerException.
+The null object design pattern negates the need to search for the null condition. This is
+accomplished by creating a null object class. The null object class is designed to implement
+the same interface as other classes in the package. No functionality is included in the null
+object class.

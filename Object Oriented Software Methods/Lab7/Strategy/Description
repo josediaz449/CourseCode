@@ -1,0 +1,5 @@
+Type: Behavioral
+Purpose: Define a family of algorithms, encapsulate each one, and make them interchangeable.
+Strategy lets the algorithm vary independently from clients that use it.
+This results in algorithm variability depending on the calling client. This is
+similar to method overloading, which allows a class to have more than one method with the same name.
