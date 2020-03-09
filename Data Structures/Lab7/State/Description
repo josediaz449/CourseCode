@@ -1,4 +1,0 @@
-Type: Behavioral
-Purpose: Allow an object to alter its behavioral when its internal state changes. The object
-will appear to change its class.
-The effect is that the object may seem to change its class

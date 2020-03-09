@@ -1,5 +1,0 @@
-Type: Behavioral
-Purpose: Provide a way to access the elements of an aggregate object sequentially without exposing
-its underlying representation.
-The key idea is to take the responsibility for access and traversal out of the aggregate object and
-put it into an Iterator object that defines a standard traversal protocol.
