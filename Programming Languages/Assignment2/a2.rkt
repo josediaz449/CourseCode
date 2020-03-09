@@ -1,0 +1,165 @@
+#lang racket
+
+(provide (all-defined-out))
+
+;;1~
+(define list-ref
+  (lambda (ls n)
+    (letrec
+      ((nth-cdr
+         (lambda (n)
+           (cond
+             [(zero? n)ls]
+             [else(cdr(nth-cdr (sub1 n))
+           )]))))
+      (car (nth-cdr n)))))
+
+;;2~
+(define union
+  (lambda (ls1 ls2)
+    (cond
+      [(null? ls1) ls2]
+      [(null? ls2) ls1]
+      [(memv (car ls2)ls1)(union ls1 (cdr ls2))]
+      [else (cons(car ls2)(union ls1 (cdr ls2)))])))
+
+;;3~
+(define extend
+  (lambda (x pred)
+    (lambda (y)
+      (or(pred y)(equal? x y))))) 
+
+;;4~
+(define walk-symbol
+  (lambda (x a)
+    (cond
+      [(or(number? x)(not (assv x a)))x]
+      [(equal? (car(assv x a)) x)(walk-symbol (cdr(assv x a)) a)]
+      [else((walk-symbol (cdr(assv x a)) a))])))
+      
+;;5~
+(define lambda->lumbda
+  (lambda (e)
+    (match e
+      [`,y
+       #:when (symbol? y)
+       y]
+      [`(lambda (,x) ,body)
+       #:when (symbol? x)
+       `(lumbda (,x) ,(lambda->lumbda body))]
+      [`(,rator ,rand)
+       `(,(lambda->lumbda rator) ,(lambda->lumbda rand))])))
+
+;;6~
+(define var-occurs?
+  (lambda (v e)
+    (match e
+      [`,y
+       #:when (symbol? y)
+       (eqv? y v)]
+      [`(lambda (,x) ,body)
+       #:when (symbol? x)
+       (var-occurs? v body)]
+      [`(,rator ,rand)
+       (or(var-occurs? v rator)(var-occurs? v rand))])))
+
+;;7~
+(define vars
+  (lambda (e)
+    (match e
+      [`,y
+       #:when (symbol? y)
+       `(,y)]
+      [`(lambda (,x) ,body)
+       #:when (symbol? x)
+       (vars body)]
+      [`(,rator ,rand)
+       (append (vars rator) (vars rand))])))
+
+;;8~
+(define unique-vars
+  (lambda (e)
+    (match e
+      [`,y
+       #:when (symbol? y)
+       `(,y)]
+      [`(lambda (,x) ,body)
+       #:when (symbol? x)
+       (unique-vars body)]
+      [`(,rator ,rand)
+       (union(unique-vars rator) (unique-vars rand))])))
+
+;;9~
+(define var-occurs-free?
+  (lambda (sym e)
+    (match e
+      [`,y
+       #:when (symbol? y)
+       (eqv? y sym)]
+      [`(lambda (,x) ,body)
+       #:when (symbol? x)
+       (and (not(eqv? x sym)) (var-occurs-free? sym body))]
+      [`(,rator ,rand)
+       (or(var-occurs-free? sym rator)(var-occurs-free? sym rand))])))
+
+;;10~
+(define var-occurs-bound?
+  (lambda (sym e)
+    (match e
+      [`,y
+       #:when (symbol? y)
+       #f]
+      [`(lambda (,x) ,body)
+       #:when (symbol? x)
+       (or(and(eqv? x sym)(var-occurs-free? sym body))(var-occurs-bound? sym body))]
+      [`(,rator ,rand)
+       (or(var-occurs-bound? sym rator)(var-occurs-bound? sym rand))])))
+      
+
+;;11~
+(define unique-free-vars
+  (lambda (e)
+    (match e
+      [`,y
+       #:when (symbol? y)
+       `(,y)]
+      [`(lambda (,x) ,body)
+       #:when (symbol? x)
+       (if(var-occurs-free? x body)
+          (remv x (unique-free-vars body))`())]
+      [`(,rator ,rand)
+       (union(unique-free-vars rator)(unique-free-vars rand))])))
+
+;;12~
+(define unique-bound-vars
+  (lambda (e)
+    (match e
+      [`,y
+       #:when (symbol? y)
+       `()]
+      [`(lambda (,x) ,body)
+       #:when (symbol? x)
+       (if(var-occurs? x body)(cons x (unique-bound-vars body))(unique-bound-vars body))]
+      [`(,rator ,rand)
+       (union(unique-bound-vars rator)(unique-bound-vars rand))])))
+
+;;13
+(define lex
+  (lambda (e a)
+    (match e
+      [`,y
+       #:when (symbol? y)
+       (if (lookup y a)
+       `(var ,(lookup y a))
+       `(free-var))]
+      [`(lambda (,x) ,body)
+       #:when (symbol? x)
+       `(lambda ,(lex body (cons `(,x . 0) (map (λ (v) (cons (car v) (add1 (cdr v)))) a))))]
+      [`(,rator ,rand)
+       `(,(lex rator a),(lex rand a))])))
+(define lookup
+  (lambda (var ls)
+    (cond
+      [(null? ls)#f]
+      [(assv var ls)=>(lambda(pr)(cdr pr))]
+      [else(lookup var (cdr ls))])))
