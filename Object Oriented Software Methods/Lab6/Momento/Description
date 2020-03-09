@@ -1,0 +1,8 @@
+Type: Behavioral
+Purpose: Without violating encapsulation, capture and externalise an objects internal state so that it can
+be restored to this state later.
+The memento design pattern saves an object's current internal state as a memento so that it
+can be referred to and restored to. If you have ever used Ctrl + Z (Windows) or Cmd + Z
+(Mac) to undo a change, you were restoring to a previous state using the memento design
+pattern. A benefit of using this design pattern is that we honor encapsulation, providing
+data protection.

@@ -1,0 +1,6 @@
+Type: Behavioral
+Purpose: Encapsulate a request as an object, thereby letting you parameterise clients with requests,
+queue or log requests, and support undoable operations.
+The designer creates an abstract base class that maps a receiver (an object) with an action
+(a pointer to a member function). The base class contains an execute method that simply calls the
+action on the receiver.

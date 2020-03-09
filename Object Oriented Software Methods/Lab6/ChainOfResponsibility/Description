@@ -1,0 +1,8 @@
+Type: Behavioral
+Purpose: Avoid coupling the sender of a request to its receiver by giving more than one object
+a chance to handle the request. Chain the receiving objects and pass the request along the chain
+until an object handles it.
+Simplifies object interconnections. Instead of senders and receivers maintaining references to all candidate
+receivers, each sender keeps a single reference to the head of the chain, and each receiver keeps a single
+reference to its immediate successor in the chain.
+Make sure there exists a "safety net" to "catch" any requests which go unhandled.

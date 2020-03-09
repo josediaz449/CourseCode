@@ -1,0 +1,9 @@
+Type: Structural
+Purpose: Attach additional responsibilities to an object dynamically. Decorators provide a flexible
+alternative to subclassing for extending functionality.
+Decorator classes are sometimes called wrapper classes, since they serve to wrap an object inside another
+object, usually to add or modify its functionality.
+Superficially, the DECORATOR pattern looks very similar to the COMPOSITE pattern.
+However, there is an essential difference. A decorator enhances the behavior of a single
+component, whereas a composite collects multiple components. There is also a difference
+in intent. A decorator aims to enhance, whereas a composite merely collects.

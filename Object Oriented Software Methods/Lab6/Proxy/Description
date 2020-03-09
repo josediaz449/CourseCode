@@ -1,0 +1,7 @@
+Type: Structural
+Purpose: Provide a surrogate or place-holder for another object to control access to it.
+A class, called the real subject, provides a service that is specified by an interface type,
+called the subject type.
+Proxy, in the Java context, is defined as having the authority to represent another object.
+The primary justification for using the proxy design pattern is to save the tremendous
+memory and processing time that is required to create complex objects.

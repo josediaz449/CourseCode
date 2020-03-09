@@ -1,0 +1,7 @@
+Type: Behavioral
+Purposes: Define an object that encapsulates how a set of objects interact. Mediator promotes loose coupling
+by keeping objects from referring to each other explicitly, and it lets you vary their interaction independently.
+The mediator object: encapsulates all interconnections, acts as the hub of communication, is responsible for
+controlling and coordinating the interactions of its clients.
+Mediators manage the interactions between two or more objects. A real-world example is a legal mediator where
+both sides of a lawsuit communicate to the mediator, but not directly to each other.

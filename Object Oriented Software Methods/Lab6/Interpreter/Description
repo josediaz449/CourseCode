@@ -1,0 +1,8 @@
+Type: Behavioral
+Purpose: Given a language, define a representation for its grammar along with an interpreter that
+uses the representation to interpret sentences in the language.
+The pattern uses a class to represent each grammar rule. And since grammars are usually hierarchical
+in structure, an inheritance hierarchy of rule classes maps nicely.
+An abstract base class specifies the method interpret. Each concrete subclass implements interpret
+by accepting (as an argument) the current state of the language stream, and adding its contribution to
+the problem solving process.
